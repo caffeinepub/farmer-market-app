@@ -1,0 +1,75 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-improve-the-home-page-frontend-src-pages-home-tsx-ensure-the-hero-section-uses-the-job-portal-blue-slate-and-teal-color-theme-the-platform-stats-live-jobs-count-registered-users-count-are-fetched-from-the-backend-and-displayed-dynamically-and-the-featured-job-categories-section-shows-at-least-6-distinct-categories-with-icons",
+      "featureTitle": "Improve the Home page (frontend/src/pages/Home.tsx): ensure the hero section uses the job-portal blue-slate and teal color theme, the platform stats (live jobs count, registered users count) are fetched from the backend and displayed dynamically, and the featured job categories section shows at least 6 distinct categories with icons.",
+      "files": [
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "user-approval@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-27"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-fix-the-admin-panel-system-reports-section-to-display-accurate-summary-cards-by-fetching-live-counts-from-the-backend-total-users-by-role-job-seeker-employer-admin-total-active-job-listings-total-applications-and-total-hired-applications",
+      "featureTitle": "Fix the Admin Panel system reports section to display accurate summary cards by fetching live counts from the backend: total users by role (Job Seeker, Employer, Admin), total active job listings, total applications, and total hired applications.",
+      "files": [
+        "frontend/src/pages/AdminPanel.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "user-approval@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-30"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-full-dark-mode-coverage-audit-all-pages-and-dashboard-components-jobseekerdashboard-employerdashboard-adminpanel-joblistings-jobdetails-about-home-and-apply-tailwind-dark-mode-classes-wherever-background-text-border-or-card-colors-are-hardcoded-to-light-values",
+      "featureTitle": "Ensure full dark mode coverage: audit all pages and dashboard components (JobSeekerDashboard, EmployerDashboard, AdminPanel, JobListings, JobDetails, About, Home) and apply Tailwind dark-mode classes wherever background, text, border, or card colors are hardcoded to light values.",
+      "files": [
+        "frontend/src/pages/AdminPanel.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "user-approval@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-31"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

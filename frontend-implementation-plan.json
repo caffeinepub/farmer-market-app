@@ -1,0 +1,266 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Job Portal App – Improvements & Fixes",
+  "requirements": [
+    {
+      "id": "REQ-22",
+      "summary": "Update the browser page title from 'Farmer Market App' to 'AI Job Portal' in the HTML entry point",
+      "acceptanceCriteria": [
+        "Browser tab shows 'AI Job Portal' instead of 'Farmer Market App'."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Change the <title> tag content from 'Farmer Market App' to 'AI Job Portal'"
+        }
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "summary": "Remove the FarmingChatbot component entirely and ensure only CareerChatbot is rendered in the root layout",
+      "acceptanceCriteria": [
+        "FarmingChatbot is not imported or rendered anywhere in the app.",
+        "CareerChatbot floating button remains visible on all pages."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Remove the FarmingChatbot import and any references to it in the component tree. Verify that only CareerChatbot is rendered in the root layout."
+        },
+        {
+          "path": "frontend/src/components/FarmingChatbot.tsx",
+          "operation": "delete",
+          "description": "Delete the FarmingChatbot component file as it is irrelevant to the Job Portal"
+        }
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "summary": "Clean up stub redirect pages (CartCheckout, CustomerDashboard, FarmerDashboard, ProductListing) and remove or replace navigation links pointing to those routes",
+      "acceptanceCriteria": [
+        "No navigation link or button routes to /cart, /customer-dashboard, /farmer-dashboard, or /product-listing.",
+        "Visiting those URLs redirects cleanly to home or an appropriate job portal page.",
+        "No console errors about missing routes."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Review the route configuration and ensure that /cart, /customer-dashboard, /farmer-dashboard, and /product-listing routes either redirect to appropriate job portal pages (like /jobs or /) or are removed entirely if no longer needed"
+        },
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "modify",
+          "description": "Remove any navigation links or menu items that point to /cart, /customer-dashboard, /farmer-dashboard, or /product-listing routes. Replace them with job portal equivalents or remove them entirely."
+        },
+        {
+          "path": "frontend/src/pages/CartCheckout.tsx",
+          "operation": "delete",
+          "description": "Delete the CartCheckout stub page as it is no longer needed for the Job Portal"
+        },
+        {
+          "path": "frontend/src/pages/CustomerDashboard.tsx",
+          "operation": "delete",
+          "description": "Delete the CustomerDashboard stub page as it is no longer needed for the Job Portal"
+        },
+        {
+          "path": "frontend/src/pages/FarmerDashboard.tsx",
+          "operation": "delete",
+          "description": "Delete the FarmerDashboard stub page as it is no longer needed for the Job Portal"
+        },
+        {
+          "path": "frontend/src/pages/ProductListing.tsx",
+          "operation": "delete",
+          "description": "Delete the ProductListing stub page as it is no longer needed for the Job Portal"
+        }
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "summary": "Remove stub components (EarningsSummary, ProductCard, ProductForm, ReviewForm, StripeConfigurationPanel) and replace any imports with safe alternatives",
+      "acceptanceCriteria": [
+        "None of the stub components are imported or rendered in any active page or component.",
+        "App compiles and runs without errors related to missing components."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/EarningsSummary.tsx",
+          "operation": "delete",
+          "description": "Delete the EarningsSummary stub component file"
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "delete",
+          "description": "Delete the ProductCard stub component file"
+        },
+        {
+          "path": "frontend/src/components/ProductForm.tsx",
+          "operation": "delete",
+          "description": "Delete the ProductForm stub component file"
+        },
+        {
+          "path": "frontend/src/components/ReviewForm.tsx",
+          "operation": "delete",
+          "description": "Delete the ReviewForm stub component file"
+        },
+        {
+          "path": "frontend/src/components/StripeConfigurationPanel.tsx",
+          "operation": "delete",
+          "description": "Delete the StripeConfigurationPanel stub component file"
+        }
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "summary": "Remove useCart and useGenerateInvoicePDF stub hooks and clean up any imports in active files",
+      "acceptanceCriteria": [
+        "useCart and useGenerateInvoicePDF are not imported in any active component or page.",
+        "App compiles without errors related to these hooks."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useCart.ts",
+          "operation": "delete",
+          "description": "Delete the useCart stub hook file"
+        },
+        {
+          "path": "frontend/src/hooks/useGenerateInvoicePDF.ts",
+          "operation": "delete",
+          "description": "Delete the useGenerateInvoicePDF stub hook file"
+        }
+      ]
+    },
+    {
+      "id": "REQ-27",
+      "summary": "Improve the Home page with job-portal blue-slate/teal theme, dynamic platform stats from backend, and at least 6 featured job categories with icons",
+      "acceptanceCriteria": [
+        "Hero section uses the established blue-slate/teal palette, not farm-market greens or ambers.",
+        "Live jobs and registered users counts are pulled from the backend via React Query.",
+        "At least 6 job categories are displayed with icons in the categories section."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Update the hero section to use the blue-slate and teal color theme from the portal palette. Fetch platform stats (active jobs count, registered users count) from the backend using the getSystemReport query hook and display them dynamically. Expand the featured job categories section to show at least 6 distinct categories with appropriate icons (e.g., Technology, Healthcare, Finance, Education, Marketing, Engineering)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-28",
+      "summary": "Add an 'Applied Jobs' count badge to the Job Seeker Dashboard Applications tab derived from existing applications data",
+      "acceptanceCriteria": [
+        "The Applications tab in the Job Seeker Dashboard displays a numeric badge showing the total application count.",
+        "The badge updates without a page reload when a new application is submitted."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/JobSeekerDashboard.tsx",
+          "operation": "modify",
+          "description": "Add a count badge to the Applications tab label in the tab bar. Derive the count from the applications data loaded by the useGetMyJobApplications hook. The badge should display the length of the applications array and update reactively when the query data changes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-29",
+      "summary": "Add bulk status update action to Employer Dashboard applicant list allowing selection and batch status updates via checkboxes",
+      "acceptanceCriteria": [
+        "Employer can select one or more applicants using checkboxes on the applicant list.",
+        "A bulk action dropdown or button appears when at least one applicant is selected.",
+        "Confirming a bulk status update calls the backend update for each selected applicant and refreshes the list."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/EmployerDashboard.tsx",
+          "operation": "modify",
+          "description": "In the Applicants tab, add checkboxes to each applicant row for selection. Track selected applicant IDs in component state. When at least one applicant is selected, display a bulk action dropdown or button offering status options (Shortlisted, Rejected, etc.). On confirmation, call the updateApplicationsStatus backend method (passing an array of selected application IDs and the new status) using a mutation hook, then refresh the applicants query data."
+        }
+      ]
+    },
+    {
+      "id": "REQ-30",
+      "summary": "Fix Admin Panel system reports to display accurate summary cards with live counts fetched from backend getSystemReport",
+      "acceptanceCriteria": [
+        "System reports cards show real-time counts sourced from backend queries.",
+        "Each card (Users by Role, Total Jobs, Total Applications, Total Hires) has a labeled icon and numeric value.",
+        "Data refreshes when the Admin Panel is opened."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminPanel.tsx",
+          "operation": "modify",
+          "description": "In the System Reports tab, use the useGetSystemReport query hook to fetch live counts from the backend. Display summary cards for: total users by role (Job Seeker, Employer, Admin), total active job listings, total applications, and total hired applications. Each card should have an icon, label, and the numeric value from the SystemReport data. Ensure the query refetches when the Admin Panel is opened or the tab is selected."
+        }
+      ]
+    },
+    {
+      "id": "REQ-31",
+      "summary": "Ensure full dark mode coverage across all pages and dashboard components by applying Tailwind dark-mode classes",
+      "acceptanceCriteria": [
+        "Toggling dark mode in the navigation applies dark backgrounds and light text across all pages.",
+        "No white or light-colored card/panel is visible in dark mode against a dark background.",
+        "Dark mode preference persists across page reloads."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Audit all background, text, border, and card color classes and add Tailwind dark: variants (e.g., dark:bg-gray-800, dark:text-white) wherever hardcoded light values appear"
+        },
+        {
+          "path": "frontend/src/pages/JobListings.tsx",
+          "operation": "modify",
+          "description": "Audit all background, text, border, and card color classes and add Tailwind dark: variants to ensure proper contrast and visibility in dark mode"
+        },
+        {
+          "path": "frontend/src/pages/JobDetails.tsx",
+          "operation": "modify",
+          "description": "Audit all background, text, border, and card color classes and add Tailwind dark: variants to ensure proper contrast and visibility in dark mode"
+        },
+        {
+          "path": "frontend/src/pages/About.tsx",
+          "operation": "modify",
+          "description": "Audit all background, text, border, and card color classes and add Tailwind dark: variants to ensure proper contrast and visibility in dark mode"
+        },
+        {
+          "path": "frontend/src/pages/JobSeekerDashboard.tsx",
+          "operation": "modify",
+          "description": "Audit all background, text, border, and card color classes in tabs, cards, and forms. Add Tailwind dark: variants to ensure proper contrast and visibility in dark mode"
+        },
+        {
+          "path": "frontend/src/pages/EmployerDashboard.tsx",
+          "operation": "modify",
+          "description": "Audit all background, text, border, and card color classes in tabs, cards, and tables. Add Tailwind dark: variants to ensure proper contrast and visibility in dark mode"
+        },
+        {
+          "path": "frontend/src/pages/AdminPanel.tsx",
+          "operation": "modify",
+          "description": "Audit all background, text, border, and card color classes in tabs, cards, and tables. Add Tailwind dark: variants to ensure proper contrast and visibility in dark mode"
+        },
+        {
+          "path": "frontend/src/components/JobCard.tsx",
+          "operation": "modify",
+          "description": "Audit all background, text, border, and badge color classes and add Tailwind dark: variants to ensure job cards display properly in dark mode"
+        },
+        {
+          "path": "frontend/src/components/JobApplicationCard.tsx",
+          "operation": "modify",
+          "description": "Audit all background, text, border, and badge color classes and add Tailwind dark: variants to ensure application cards display properly in dark mode"
+        },
+        {
+          "path": "frontend/src/components/AIRecommendations.tsx",
+          "operation": "modify",
+          "description": "Audit all background, text, and badge color classes and add Tailwind dark: variants to ensure recommendation cards display properly in dark mode"
+        },
+        {
+          "path": "frontend/src/components/EmployerAnalytics.tsx",
+          "operation": "modify",
+          "description": "Audit all background, text, and chart color classes and add Tailwind dark: variants to ensure analytics cards and charts display properly in dark mode"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T01:46:45.592Z",
+  "summary": "The diff implements several requirements but has notable gaps. REQ-22 (title fix), REQ-23 (FarmingChatbot removal), REQ-24 (stub page redirects), REQ-25 (stub components), REQ-26 (stub hooks), REQ-27 (Home page improvements), REQ-30 (Admin Panel system reports), and partial REQ-31 (dark mode classes on some pages) appear addressed. However, REQ-28 (Applied Jobs count badge on Job Seeker Dashboard) and REQ-29 (bulk status update in Employer Dashboard) show no evidence of implementation in the diff.",
+  "missing_requirements": [
+    {
+      "id": "REQ-28",
+      "requirement": "Add an 'Applied Jobs' count badge to the Job Seeker Dashboard tab bar showing total application count, updating without page reload.",
+      "reason": "No changes to JobSeekerDashboard are present in the diff. The file is not listed in modified files, and there is no mention of a badge or application count in any modified file.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-29",
+      "requirement": "In the Employer Dashboard, add bulk status update with checkboxes, bulk action dropdown/button, and backend calls for each selected applicant.",
+      "reason": "No changes to EmployerDashboard are present in the diff. The file is not listed in modified files, and no bulk selection or bulk action UI is mentioned anywhere in the diff.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-27",
+      "requirement": "Registered users count should be fetched from the backend and displayed dynamically in addition to live jobs count.",
+      "reason": "Home.tsx only fetches active jobs via useGetActiveJobs. The stats bar uses jobs.length and static values; there is no backend query for registered users count. The file-diff summary explicitly notes stats now use jobs.length and static category count.",
+      "evidence": [
+        "frontend/src/pages/Home.tsx",
+        "frontend-file-summaries.txt"
+      ]
+    },
+    {
+      "id": "REQ-31",
+      "requirement": "Full dark mode coverage across all pages including JobSeekerDashboard, EmployerDashboard, JobListings, and JobDetails.",
+      "reason": "Only AdminPanel.tsx and Home.tsx show dark mode class additions in the diff. JobSeekerDashboard, EmployerDashboard, JobListings, JobDetails, and About are not listed as modified files.",
+      "evidence": [
+        "frontend/src/pages/AdminPanel.tsx",
+        "frontend/src/pages/Home.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Stripe import and stripeConfig variable retained in backend/main.mo",
+      "reason": "The backend still imports Stripe and declares a stripeConfig variable, which is part of the old farm-market app and not requested by any requirement in this build request. Stripe is a remnant that was not requested to be kept.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "confidence": 0.78,
+  "changed_files": [
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/src/pages/AdminPanel.tsx",
+    "frontend/src/pages/Home.tsx",
+    "project_state.json"
+  ]
+}

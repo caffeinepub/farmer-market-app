@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: oklch(0.99 0.002 240);
+    --foreground: oklch(0.15 0.02 240);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.15 0.02 240);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.15 0.02 240);
+    --primary: oklch(0.38 0.09 240);
+    --primary-foreground: oklch(0.98 0.005 240);
+    --secondary: oklch(0.94 0.01 240);
+    --secondary-foreground: oklch(0.25 0.04 240);
+    --muted: oklch(0.95 0.008 240);
+    --muted-foreground: oklch(0.52 0.03 240);
+    --accent: oklch(0.55 0.14 185);
+    --accent-foreground: oklch(0.98 0.005 185);
+    --destructive: oklch(0.55 0.2 25);
+    --destructive-foreground: oklch(0.98 0.005 25);
+    --border: oklch(0.88 0.01 240);
+    --input: oklch(0.88 0.01 240);
+    --ring: oklch(0.38 0.09 240);
+    --radius: 0.5rem;
+    --chart-1: oklch(0.38 0.09 240);
+    --chart-2: oklch(0.55 0.14 185);
+    --chart-3: oklch(0.72 0.18 75);
+    --chart-4: oklch(0.55 0.15 145);
+    --chart-5: oklch(0.55 0.2 25);
+    --sidebar: oklch(0.99 0.002 240);
+    --sidebar-foreground: oklch(0.15 0.02 240);
+    --sidebar-primary: oklch(0.38 0.09 240);
+    --sidebar-primary-foreground: oklch(0.98 0.005 240);
+    --sidebar-accent: oklch(0.94 0.01 240);
+    --sidebar-accent-foreground: oklch(0.25 0.04 240);
+    --sidebar-border: oklch(0.88 0.01 240);
+    --sidebar-ring: oklch(0.38 0.09 240);
+  }
+
+  .dark {
+    --background: oklch(0.12 0.02 240);
+    --foreground: oklch(0.93 0.01 240);
+    --card: oklch(0.17 0.025 240);
+    --card-foreground: oklch(0.93 0.01 240);
+    --popover: oklch(0.17 0.025 240);
+    --popover-foreground: oklch(0.93 0.01 240);
+    --primary: oklch(0.65 0.12 240);
+    --primary-foreground: oklch(0.12 0.02 240);
+    --secondary: oklch(0.22 0.03 240);
+    --secondary-foreground: oklch(0.88 0.01 240);
+    --muted: oklch(0.22 0.03 240);
+    --muted-foreground: oklch(0.62 0.04 240);
+    --accent: oklch(0.6 0.14 185);
+    --accent-foreground: oklch(0.12 0.02 185);
+    --destructive: oklch(0.6 0.2 25);
+    --destructive-foreground: oklch(0.98 0.005 25);
+    --border: oklch(0.28 0.03 240);
+    --input: oklch(0.28 0.03 240);
+    --ring: oklch(0.65 0.12 240);
+    --chart-1: oklch(0.65 0.12 240);
+    --chart-2: oklch(0.6 0.14 185);
+    --chart-3: oklch(0.75 0.18 75);
+    --chart-4: oklch(0.6 0.15 145);
+    --chart-5: oklch(0.6 0.2 25);
+    --sidebar: oklch(0.12 0.02 240);
+    --sidebar-foreground: oklch(0.93 0.01 240);
+    --sidebar-primary: oklch(0.65 0.12 240);
+    --sidebar-primary-foreground: oklch(0.12 0.02 240);
+    --sidebar-accent: oklch(0.22 0.03 240);
+    --sidebar-accent-foreground: oklch(0.88 0.01 240);
+    --sidebar-border: oklch(0.28 0.03 240);
+    --sidebar-ring: oklch(0.65 0.12 240);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Card hover effect — no variant prefixes, safe for @apply */
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+  }
+}
+
+/* Application status badge styles — plain CSS to avoid @apply variant issues */
+.badge-status-applied {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+.badge-status-shortlisted {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+.badge-status-rejected {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+.badge-status-hired {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.dark .badge-status-applied {
+  background-color: rgba(30, 64, 175, 0.3);
+  color: #93c5fd;
+}
+.dark .badge-status-shortlisted {
+  background-color: rgba(180, 83, 9, 0.3);
+  color: #fcd34d;
+}
+.dark .badge-status-rejected {
+  background-color: rgba(185, 28, 28, 0.3);
+  color: #fca5a5;
+}
+.dark .badge-status-hired {
+  background-color: rgba(6, 95, 70, 0.3);
+  color: #6ee7b7;
+}
+
+/* Prevent FOUC for dark mode */
+html.dark {
+  color-scheme: dark;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+
+/* Override transition for elements that shouldn't animate */
+.no-transition,
+.no-transition * {
+  transition: none !important;
+}

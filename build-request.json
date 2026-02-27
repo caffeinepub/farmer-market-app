@@ -1,0 +1,197 @@
+{
+  "kind": "build_request",
+  "title": "Job Portal App – Improvements & Fixes",
+  "projectName": "AI Job Portal",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-22",
+      "text": "Fix the stale page title in frontend/index.html: change the <title> tag from 'Farmer Market App' to 'AI Job Portal'.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "I want some changes in Job Portal App"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Browser tab shows 'AI Job Portal' instead of 'Farmer Market App'."
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "text": "Remove the FarmingChatbot component from the app entirely. It is a farming FAQ chatbot that is irrelevant to the Job Portal. Ensure only the CareerChatbot floating widget is rendered in the root layout.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "I want some changes in Job Portal App"
+        ]
+      },
+      "acceptanceCriteria": [
+        "FarmingChatbot is not imported or rendered anywhere in the app.",
+        "CareerChatbot floating button remains visible on all pages."
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "text": "Clean up all stub/redirect pages that are remnants of the old farm-market app: CartCheckout, CustomerDashboard, FarmerDashboard, and ProductListing. Replace any remaining navigation links pointing to those routes with appropriate job-portal equivalents or remove them entirely from the navigation.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "I want some changes in Job Portal App"
+        ]
+      },
+      "acceptanceCriteria": [
+        "No navigation link or button routes to /cart, /customer-dashboard, /farmer-dashboard, or /product-listing.",
+        "Visiting those URLs redirects cleanly to home or an appropriate job portal page.",
+        "No console errors about missing routes."
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "text": "Remove stub components that are no longer needed for the Job Portal: EarningsSummary, ProductCard, ProductForm, ReviewForm, and StripeConfigurationPanel. If any of these are still imported anywhere, replace those imports with null/empty safe alternatives so the build does not break.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "I want some changes in Job Portal App"
+        ]
+      },
+      "acceptanceCriteria": [
+        "None of the stub components are imported or rendered in any active page or component.",
+        "App compiles and runs without errors related to missing components."
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "text": "Remove the useCart and useGenerateInvoicePDF stub hooks from the codebase. If they are imported anywhere in active files, remove those imports cleanly.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "I want some changes in Job Portal App"
+        ]
+      },
+      "acceptanceCriteria": [
+        "useCart and useGenerateInvoicePDF are not imported in any active component or page.",
+        "App compiles without errors related to these hooks."
+      ]
+    },
+    {
+      "id": "REQ-27",
+      "text": "Improve the Home page (frontend/src/pages/Home.tsx): ensure the hero section uses the job-portal blue-slate and teal color theme, the platform stats (live jobs count, registered users count) are fetched from the backend and displayed dynamically, and the featured job categories section shows at least 6 distinct categories with icons.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "I want some changes in Job Portal App"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero section uses the established blue-slate/teal palette, not farm-market greens or ambers.",
+        "Live jobs and registered users counts are pulled from the backend via React Query.",
+        "At least 6 job categories are displayed with icons in the categories section."
+      ]
+    },
+    {
+      "id": "REQ-28",
+      "text": "Add an 'Applied Jobs' count badge to the Job Seeker Dashboard tab bar so seekers can see at a glance how many applications they have submitted. The count should be derived from the existing applications data already loaded in the dashboard.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "I want some changes in Job Portal App"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Applications tab in the Job Seeker Dashboard displays a numeric badge showing the total application count.",
+        "The badge updates without a page reload when a new application is submitted."
+      ]
+    },
+    {
+      "id": "REQ-29",
+      "text": "In the Employer Dashboard, add a bulk status update action: when viewing the applicants list for a job, allow the employer to select multiple applicants via checkboxes and update all their statuses (e.g., Shortlisted, Rejected) in one action.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "I want some changes in Job Portal App"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Employer can select one or more applicants using checkboxes on the applicant list.",
+        "A bulk action dropdown or button appears when at least one applicant is selected.",
+        "Confirming a bulk status update calls the backend update for each selected applicant and refreshes the list."
+      ]
+    },
+    {
+      "id": "REQ-30",
+      "text": "Fix the Admin Panel system reports section to display accurate summary cards by fetching live counts from the backend: total users by role (Job Seeker, Employer, Admin), total active job listings, total applications, and total hired applications.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "I want some changes in Job Portal App"
+        ]
+      },
+      "acceptanceCriteria": [
+        "System reports cards show real-time counts sourced from backend queries.",
+        "Each card (Users by Role, Total Jobs, Total Applications, Total Hires) has a labeled icon and numeric value.",
+        "Data refreshes when the Admin Panel is opened."
+      ]
+    },
+    {
+      "id": "REQ-31",
+      "text": "Ensure full dark mode coverage: audit all pages and dashboard components (JobSeekerDashboard, EmployerDashboard, AdminPanel, JobListings, JobDetails, About, Home) and apply Tailwind dark-mode classes wherever background, text, border, or card colors are hardcoded to light values.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "I want some changes in Job Portal App"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Toggling dark mode in the navigation applies dark backgrounds and light text across all pages.",
+        "No white or light-colored card/panel is visible in dark mode against a dark background.",
+        "Dark mode preference persists across page reloads."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify files listed under frontend.immutablePaths.",
+    "All Motoko logic must remain in backend/main.mo as a single actor.",
+    "Do not introduce any external API, database, or cloud service integrations."
+  ],
+  "nonGoals": [
+    "Adding entirely new features not already part of the job portal scope.",
+    "Changing the authentication mechanism (Internet Identity must remain).",
+    "Adding email notifications or real-time WebSocket features.",
+    "Migrating to a different frontend framework."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

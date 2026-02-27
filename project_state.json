@@ -1,0 +1,372 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Full-stack AI-Based Job Portal App (AI-Powered Recruitment Platform) built with React/Next.js frontend, Node.js + Express backend, MongoDB database, and Python AI module (Scikit-learn + NLP). Features include role-based auth (Job Seeker/Employer/Admin) with JWT and email/OTP verification, Job Seeker Dashboard (profile, resume upload, job browse/apply, application tracking, wishlist, AI recommendations), Employer Dashboard (post/edit/delete jobs, view applicants, shortlist, schedule interviews, analytics), Admin Panel (user management, employer approval, job monitoring, reports), AI features (resume parsing, skill matching, resume screening, job recommendations, resume score & salary prediction, career guidance chatbot), advanced search/filters, email notifications, interview reminders, PDF application summary download, multi-language support, and dark mode. Suitable for B.Tech final year project.",
+  "architectural_notes": [
+    "Frontend: React + TypeScript + Tailwind CSS (mobile responsive)",
+    "Frontend: React.js / Next.js (mobile responsive, dark mode support)",
+    "Backend: Node.js + Express; Database: MongoDB",
+    "Auth: JWT-based with bcrypt password encryption and email/OTP verification",
+    "AI Module: Python (Scikit-learn + NLP) for resume parsing, skill matching, salary prediction"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-implement-role-based-authentication-using-internet-identity-with-three-roles-farmer-customer-and-admin-on-first-login-prompt-the-user-to-select-their-role-store-the-principal-id-and-role-in-stable-backend-storage",
+      "title": "Implement role-based authentication using Internet Identity with three roles: Farmer, Customer, and Admin. On first login, prompt the user to select their role. Store the principal ID and role in stable backend storage.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-farmer-dashboard-that-allows-logged-in-farmers-to-add-new-products-name-category-quantity-available-price-per-kg-harvest-date-location-product-image-upload-edit-and-delete-their-own-products-view-a-list-of-orders-received-for-their-products-and-view-an-earnings-summary-total-revenue-pending-vs-completed-orders",
+      "title": "Build a Farmer Dashboard that allows logged-in farmers to: add new products (name, category, quantity available, price per kg, harvest date, location, product image upload); edit and delete their own products; view a list of orders received for their products; and view an earnings summary (total revenue, pending vs. completed orders).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-customer-dashboard-that-allows-logged-in-customers-to-browse-products-by-category-vegetables-fruits-grains-dairy-search-and-filter-products-by-price-range-and-product-type-add-products-to-a-cart-place-orders-via-stripe-checkout-view-order-history-with-status-tracking-and-rate-and-review-farmers-after-purchase",
+      "title": "Build a Customer Dashboard that allows logged-in customers to: browse products by category (Vegetables, Fruits, Grains, Dairy); search and filter products by price range and product type; add products to a cart; place orders via Stripe checkout; view order history with status tracking; and rate and review farmers after purchase.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-admin-panel-accessible-only-to-users-with-the-admin-role-it-must-include-a-user-management-table-list-all-users-view-role-suspend-activate-accounts-a-farmer-approval-workflow-farmers-require-admin-approval-before-their-products-are-visible-a-transaction-monitor-listing-all-orders-with-amounts-and-statuses",
+      "title": "Build an Admin Panel accessible only to users with the Admin role. It must include: a user management table (list all users, view role, suspend/activate accounts); a farmer approval workflow (farmers require admin approval before their products are visible); a transaction monitor listing all orders with amounts and statuses.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-rule-based-ai-price-suggestion-feature-for-farmers-when-a-farmer-is-creating-or-editing-a-product-display-a-suggested-price-per-kg-based-on-the-product-category-current-month-season-and-quantity-available-also-implement-smart-product-recommendations-for-customers-on-the-home-and-product-listing-pages-surfacing-products-relevant-to-their-browsing-and-purchase-history",
+      "title": "Implement a rule-based AI price suggestion feature for farmers. When a farmer is creating or editing a product, display a suggested price per kg based on the product category, current month/season, and quantity available. Also implement smart product recommendations for customers on the home and product listing pages, surfacing products relevant to their browsing and purchase history.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-faq-based-farming-chatbot-accessible-from-all-pages-via-a-floating-chat-button-the-chatbot-answers-common-farming-questions-soil-preparation-fertilizer-use-common-pests-crop-seasons-using-a-static-predefined-knowledge-base",
+      "title": "Add a FAQ-based farming chatbot accessible from all pages via a floating chat button. The chatbot answers common farming questions (soil preparation, fertilizer use, common pests, crop seasons) using a static predefined knowledge base.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-multi-language-toggle-english-tamil-accessible-from-the-navigation-bar-all-ui-labels-buttons-and-static-text-must-switch-language-without-a-page-reload-store-the-selected-language-in-local-storage",
+      "title": "Implement a multi-language toggle (English / Tamil) accessible from the navigation bar. All UI labels, buttons, and static text must switch language without a page reload. Store the selected language in local storage.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-client-side-pdf-invoice-download-for-completed-orders-from-the-order-history-page-a-customer-can-download-a-formatted-invoice-pdf-for-any-completed-order-including-order-id-date-items-quantities-prices-and-total",
+      "title": "Add a client-side PDF invoice download for completed orders. From the order history page, a customer can download a formatted invoice PDF for any completed order, including order ID, date, items, quantities, prices, and total.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-following-pages-home-page-hero-section-featured-categories-featured-products-recommendations-product-listing-page-all-products-with-search-and-filters-cart-checkout-page-cart-summary-stripe-payment-and-about-page-app-mission-how-it-works-contact-info",
+      "title": "Build the following pages: Home Page (hero section, featured categories, featured products, recommendations), Product Listing Page (all products with search and filters), Cart & Checkout Page (cart summary + Stripe payment), and About Page (app mission, how it works, contact info).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-visual-theme-throughout-the-app-warm-earthy-tones-greens-ambers-browns-evoking-fresh-produce-and-agriculture-clean-sans-serif-typography-for-rural-readability-card-based-product-layouts-and-a-simple-top-navigation-with-a-mobile-responsive-hamburger-menu-the-design-should-feel-approachable-and-trustworthy-for-rural-users",
+      "title": "Apply a cohesive visual theme throughout the app: warm earthy tones (greens, ambers, browns) evoking fresh produce and agriculture, clean sans-serif typography for rural readability, card-based product layouts, and a simple top navigation with a mobile-responsive hamburger menu. The design should feel approachable and trustworthy for rural users.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-role-based-authentication-using-internet-identity-with-three-roles-job-seeker-employer-and-admin-on-first-login-prompt-the-user-to-select-their-role-job-seeker-employer-or-admin-store-the-principal-id-and-role-in-stable-backend-storage-protect-all-dashboard-routes-based-on-role",
+      "title": "Implement role-based authentication using Internet Identity with three roles: Job Seeker, Employer, and Admin. On first login, prompt the user to select their role (Job Seeker, Employer, or Admin). Store the principal ID and role in stable backend storage. Protect all dashboard routes based on role.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-job-seeker-dashboard-accessible-only-to-users-with-the-job-seeker-role-it-must-allow-creating-and-editing-a-profile-name-skills-education-experience-preferred-location-uploading-a-resume-stored-as-base64-in-the-backend-browsing-and-searching-all-job-listings-applying-for-jobs-tracking-application-status-applied-shortlisted-rejected-hired-saving-jobs-to-a-wishlist-and-viewing-rule-based-ai-job-recommendations-based-on-the-seeker-s-listed-skills-and-job-categories",
+      "title": "Build a Job Seeker Dashboard accessible only to users with the Job Seeker role. It must allow: creating and editing a profile (name, skills, education, experience, preferred location); uploading a resume stored as base64 in the backend; browsing and searching all job listings; applying for jobs; tracking application status (Applied, Shortlisted, Rejected, Hired); saving jobs to a wishlist; and viewing rule-based AI job recommendations based on the seeker's listed skills and job categories.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-employer-dashboard-accessible-only-to-users-with-the-employer-role-it-must-allow-posting-new-job-openings-title-description-required-skills-location-salary-range-job-type-deadline-editing-and-deleting-own-job-posts-viewing-all-applicants-for-each-job-with-their-profile-and-resume-shortlisting-or-rejecting-candidates-updating-application-status-scheduling-interviews-storing-a-date-time-note-per-applicant-and-viewing-basic-analytics-total-applications-per-job-counts-by-status-shortlisted-rejected-hired-employer-accounts-must-be-pending-admin-approval-before-their-job-posts-are-visible-publicly",
+      "title": "Build an Employer Dashboard accessible only to users with the Employer role. It must allow: posting new job openings (title, description, required skills, location, salary range, job type, deadline); editing and deleting own job posts; viewing all applicants for each job with their profile and resume; shortlisting or rejecting candidates (updating application status); scheduling interviews (storing a date/time note per applicant); and viewing basic analytics (total applications per job, counts by status: shortlisted, rejected, hired). Employer accounts must be pending admin approval before their job posts are visible publicly.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-admin-panel-accessible-only-to-users-with-the-admin-role-it-must-include-a-user-management-table-list-all-users-view-role-suspend-activate-accounts-an-employer-approval-workflow-approve-or-reject-pending-employer-accounts-a-job-postings-monitor-view-all-jobs-remove-spam-or-fake-listings-and-a-system-reports-section-total-users-by-role-total-jobs-total-applications-total-hires-displayed-as-summary-cards",
+      "title": "Build an Admin Panel accessible only to users with the Admin role. It must include: a user management table (list all users, view role, suspend/activate accounts); an employer approval workflow (approve or reject pending employer accounts); a job postings monitor (view all jobs, remove spam or fake listings); and a system reports section (total users by role, total jobs, total applications, total hires displayed as summary cards).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-rule-based-ai-features-entirely-in-the-frontend-and-backend-no-external-python-ml-service-1-skill-matching-job-recommendations-rank-jobs-for-a-seeker-by-counting-overlapping-skills-between-the-seeker-profile-and-job-requirements-2-resume-score-compute-a-0-100-score-based-on-number-of-skills-listed-education-entries-experience-entries-and-whether-a-resume-file-is-uploaded-3-salary-prediction-return-a-salary-range-estimate-based-on-job-category-and-years-of-experience-using-a-static-lookup-table-4-resume-screening-for-employers-sort-applicants-by-their-computed-resume-score-descending-when-the-employer-views-applicants",
+      "title": "Implement rule-based AI features entirely in the frontend and backend (no external Python/ML service): (1) Skill Matching & Job Recommendations — rank jobs for a seeker by counting overlapping skills between the seeker profile and job requirements; (2) Resume Score — compute a 0–100 score based on number of skills listed, education entries, experience entries, and whether a resume file is uploaded; (3) Salary Prediction — return a salary range estimate based on job category and years of experience using a static lookup table; (4) Resume Screening for Employers — sort applicants by their computed resume score descending when the employer views applicants.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-career-guidance-chatbot-accessible-from-all-pages-via-a-floating-chat-button-the-chatbot-uses-a-static-predefined-faq-knowledge-base-covering-resume-writing-tips-interview-preparation-common-career-paths-by-field-how-to-improve-skill-scores-and-job-search-strategies-responses-are-matched-using-keyword-detection-against-user-input",
+      "title": "Add a career guidance chatbot accessible from all pages via a floating chat button. The chatbot uses a static predefined FAQ knowledge base covering: resume writing tips, interview preparation, common career paths by field, how to improve skill scores, and job search strategies. Responses are matched using keyword detection against user input.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-following-pages-1-home-page-with-a-hero-banner-platform-value-proposition-featured-job-categories-a-count-of-live-jobs-and-registered-users-and-a-call-to-action-for-both-job-seekers-and-employers-2-job-listings-page-with-search-bar-filters-for-location-salary-range-job-type-full-time-part-time-remote-internship-and-category-3-job-details-page-showing-full-job-description-required-skills-salary-range-company-info-and-an-apply-button-4-about-page-describing-the-platform-mission-how-it-works-for-seekers-and-employers-and-contact-information",
+      "title": "Build the following pages: (1) Home Page with a hero banner, platform value proposition, featured job categories, a count of live jobs and registered users, and a call-to-action for both job seekers and employers; (2) Job Listings Page with search bar, filters for location, salary range, job type (Full-time, Part-time, Remote, Internship), and category; (3) Job Details Page showing full job description, required skills, salary range, company info, and an Apply button; (4) About Page describing the platform mission, how it works for seekers and employers, and contact information.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-client-side-pdf-download-for-a-job-application-summary-from-the-job-seeker-dashboard-s-application-history-tab-the-seeker-can-download-a-formatted-pdf-for-any-application-including-applicant-name-job-title-employer-applied-date-application-status-and-listed-skills",
+      "title": "Add a client-side PDF download for a job application summary. From the Job Seeker Dashboard's application history tab, the seeker can download a formatted PDF for any application including: applicant name, job title, employer, applied date, application status, and listed skills.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-multi-language-toggle-english-tamil-accessible-from-the-navigation-bar-all-ui-labels-buttons-page-headings-and-static-text-in-the-job-portal-must-switch-language-without-a-page-reload-store-the-selected-language-in-localstorage-extend-the-existing-translations-system-to-cover-all-new-job-portal-ui-strings",
+      "title": "Implement a multi-language toggle (English / Tamil) accessible from the navigation bar. All UI labels, buttons, page headings, and static text in the Job Portal must switch language without a page reload. Store the selected language in localStorage. Extend the existing translations system to cover all new Job Portal UI strings.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-dark-mode-toggle-accessible-from-the-navigation-bar-all-pages-dashboards-cards-and-modals-must-respect-the-selected-theme-persist-the-user-s-theme-preference-in-localstorage-use-css-custom-properties-tailwind-dark-mode-classes-to-switch-themes",
+      "title": "Implement a dark mode toggle accessible from the navigation bar. All pages, dashboards, cards, and modals must respect the selected theme. Persist the user's theme preference in localStorage. Use CSS custom properties / Tailwind dark-mode classes to switch themes.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-modern-professional-visual-theme-throughout-the-job-portal-app-use-a-clean-blue-slate-and-white-color-palette-with-accent-tones-of-teal-and-amber-use-a-modern-sans-serif-font-e-g-inter-or-dm-sans-layouts-should-use-card-based-job-listings-a-sticky-top-navigation-bar-with-a-mobile-hamburger-menu-and-a-dashboard-sidebar-for-role-specific-navigation-the-design-must-feel-polished-and-credible-for-a-b-tech-final-year-project-submission",
+      "title": "Apply a modern, professional visual theme throughout the Job Portal app. Use a clean blue-slate and white color palette with accent tones of teal and amber. Use a modern sans-serif font (e.g., Inter or DM Sans). Layouts should use card-based job listings, a sticky top navigation bar with a mobile hamburger menu, and a dashboard sidebar for role-specific navigation. The design must feel polished and credible for a B.Tech final-year project submission.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-improve-the-home-page-frontend-src-pages-home-tsx-ensure-the-hero-section-uses-the-job-portal-blue-slate-and-teal-color-theme-the-platform-stats-live-jobs-count-registered-users-count-are-fetched-from-the-backend-and-displayed-dynamically-and-the-featured-job-categories-section-shows-at-least-6-distinct-categories-with-icons",
+      "title": "Improve the Home page (frontend/src/pages/Home.tsx): ensure the hero section uses the job-portal blue-slate and teal color theme, the platform stats (live jobs count, registered users count) are fetched from the backend and displayed dynamically, and the featured job categories section shows at least 6 distinct categories with icons.",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-admin-panel-system-reports-section-to-display-accurate-summary-cards-by-fetching-live-counts-from-the-backend-total-users-by-role-job-seeker-employer-admin-total-active-job-listings-total-applications-and-total-hired-applications",
+      "title": "Fix the Admin Panel system reports section to display accurate summary cards by fetching live counts from the backend: total users by role (Job Seeker, Employer, Admin), total active job listings, total applications, and total hired applications.",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-full-dark-mode-coverage-audit-all-pages-and-dashboard-components-jobseekerdashboard-employerdashboard-adminpanel-joblistings-jobdetails-about-home-and-apply-tailwind-dark-mode-classes-wherever-background-text-border-or-card-colors-are-hardcoded-to-light-values",
+      "title": "Ensure full dark mode coverage: audit all pages and dashboard components (JobSeekerDashboard, EmployerDashboard, AdminPanel, JobListings, JobDetails, About, Home) and apply Tailwind dark-mode classes wherever background, text, border, or card colors are hardcoded to light values.",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "User Authentication with role selection (Farmer, Customer, Admin) via Internet Identity",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Farmer Dashboard: add/edit/delete products, image upload, view orders, earnings summary",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Customer Dashboard: browse by category, search/filter, cart, Stripe checkout, order history, rate & review",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Admin Panel: manage users, approve farmers, monitor transactions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "AI price suggestion (rule-based on category, season, quantity) and smart product recommendations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Farming chatbot (FAQ-based)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Multi-language support (English + Tamil)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "PDF invoice download (client-side)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Product Listing Page with search and filters (price, product type)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Home Page, About Page, Cart & Checkout Page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "User Authentication: Register/Login, role-based access (Job Seeker/Employer/Admin), JWT, bcrypt, email/OTP verification, protected routes",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Job Seeker Dashboard: profile, resume upload, skills/education/experience, browse/apply/track jobs, wishlist, AI job recommendations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Employer Dashboard: post/edit/delete jobs, view/download applicants, shortlist, schedule interviews, analytics",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Admin Panel: manage users, approve employers, monitor job postings, remove spam listings, generate reports",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "AI features: resume parsing (NLP), skill matching, resume screening, job recommendations, resume score & salary prediction, career guidance chatbot (Scikit-learn)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Extra features: advanced search/filters, email notifications, interview reminders, PDF application summary download, multi-language support, dark mode",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Required pages: Home, Login/Register, Job Listings, Job Details, Job Seeker Dashboard, Employer Dashboard, Admin Panel, About",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Fix the stale page title in frontend/index.html: change the <title> tag from 'Farmer Market App' to 'AI Job Portal'.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Remove the FarmingChatbot component from the app entirely. It is a farming FAQ chatbot that is irrelevant to the Job Portal. Ensure only the CareerChatbot floating widget is rendered in the root layout.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Clean up all stub/redirect pages that are remnants of the old farm-market app: CartCheckout, CustomerDashboard, FarmerDashboard, and ProductListing. Replace any remaining navigation links pointing to those routes with appropriate job-portal equivalents or remove them entirely from the navigation.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-21",
+      "summary": "Remove stub components that are no longer needed for the Job Portal: EarningsSummary, ProductCard, ProductForm, ReviewForm, and StripeConfigurationPanel. If any of these are still imported anywhere, replace those imports with null/empty safe alternatives so the build does not break.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Remove the useCart and useGenerateInvoicePDF stub hooks from the codebase. If they are imported anywhere in active files, remove those imports cleanly.",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Add an 'Applied Jobs' count badge to the Job Seeker Dashboard tab bar so seekers can see at a glance how many applications they have submitted. The count should be derived from the existing applications data already loaded in the dashboard.",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "In the Employer Dashboard, add a bulk status update action: when viewing the applicants list for a job, allow the employer to select multiple applicants via checkboxes and update all their statuses (e.g., Shortlisted, Rejected) in one action.",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Farmer Market App",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

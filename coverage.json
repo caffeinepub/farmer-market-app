@@ -1,0 +1,150 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T01:46:45.598Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 10,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-22",
+        "summary": "Fix the stale page title in frontend/index.html: change the <title> tag from 'Farmer Market App' to 'AI Job Portal'.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/index.html"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-23",
+        "summary": "Remove the FarmingChatbot component from the app entirely. It is a farming FAQ chatbot that is irrelevant to the Job Portal. Ensure only the CareerChatbot floating widget is rendered in the root layout.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/App.tsx",
+          "frontend/src/components/FarmingChatbot.tsx"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-24",
+        "summary": "Clean up all stub/redirect pages that are remnants of the old farm-market app: CartCheckout, CustomerDashboard, FarmerDashboard, and ProductListing. Replace any remaining navigation links pointing to those routes with appropriate job-portal equivalents or remove them entirely from the navigation.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/App.tsx",
+          "frontend/src/components/Navigation.tsx",
+          "frontend/src/pages/CartCheckout.tsx",
+          "frontend/src/pages/CustomerDashboard.tsx",
+          "frontend/src/pages/FarmerDashboard.tsx",
+          "frontend/src/pages/ProductListing.tsx"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-25",
+        "summary": "Remove stub components that are no longer needed for the Job Portal: EarningsSummary, ProductCard, ProductForm, ReviewForm, and StripeConfigurationPanel. If any of these are still imported anywhere, replace those imports with null/empty safe alternatives so the build does not break.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/components/EarningsSummary.tsx",
+          "frontend/src/components/ProductCard.tsx",
+          "frontend/src/components/ProductForm.tsx",
+          "frontend/src/components/ReviewForm.tsx",
+          "frontend/src/components/StripeConfigurationPanel.tsx"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-26",
+        "summary": "Remove the useCart and useGenerateInvoicePDF stub hooks from the codebase. If they are imported anywhere in active files, remove those imports cleanly.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/hooks/useCart.ts",
+          "frontend/src/hooks/useGenerateInvoicePDF.ts"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-27",
+        "summary": "Improve the Home page (frontend/src/pages/Home.tsx): ensure the hero section uses the job-portal blue-slate and teal color theme, the platform stats (live jobs count, registered users count) are fetched from the backend and displayed dynamically, and the featured job categories section shows at least 6 distinct categories with icons.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Home.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Home.tsx"
+        ]
+      },
+      {
+        "id": "REQ-28",
+        "summary": "Add an 'Applied Jobs' count badge to the Job Seeker Dashboard tab bar so seekers can see at a glance how many applications they have submitted. The count should be derived from the existing applications data already loaded in the dashboard.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/pages/JobSeekerDashboard.tsx"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-29",
+        "summary": "In the Employer Dashboard, add a bulk status update action: when viewing the applicants list for a job, allow the employer to select multiple applicants via checkboxes and update all their statuses (e.g., Shortlisted, Rejected) in one action.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/pages/EmployerDashboard.tsx"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-30",
+        "summary": "Fix the Admin Panel system reports section to display accurate summary cards by fetching live counts from the backend: total users by role (Job Seeker, Employer, Admin), total active job listings, total applications, and total hired applications.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/AdminPanel.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/AdminPanel.tsx"
+        ]
+      },
+      {
+        "id": "REQ-31",
+        "summary": "Ensure full dark mode coverage: audit all pages and dashboard components (JobSeekerDashboard, EmployerDashboard, AdminPanel, JobListings, JobDetails, About, Home) and apply Tailwind dark-mode classes wherever background, text, border, or card colors are hardcoded to light values.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Home.tsx",
+          "frontend/src/pages/JobListings.tsx",
+          "frontend/src/pages/JobDetails.tsx",
+          "frontend/src/pages/About.tsx",
+          "frontend/src/pages/JobSeekerDashboard.tsx",
+          "frontend/src/pages/EmployerDashboard.tsx",
+          "frontend/src/pages/AdminPanel.tsx",
+          "frontend/src/components/JobCard.tsx",
+          "frontend/src/components/JobApplicationCard.tsx",
+          "frontend/src/components/AIRecommendations.tsx",
+          "frontend/src/components/EmployerAnalytics.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Home.tsx",
+          "frontend/src/pages/AdminPanel.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/pages/AdminPanel.tsx",
+    "frontend/src/pages/Home.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}
